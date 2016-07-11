@@ -13,3 +13,13 @@
      ((null? l) #t)
      ((atom? (car l)) (lat? (cdr l)))
      (else #f))))
+
+
+;; Definition of member of list
+;; (member? a lat) is a meber of lat?
+(define member?
+  (lambda (a lat)
+    (cond
+     ((null? lat) #f)
+     (else (or (eq? (car lat) a)
+               (member? a (cdr lat)))))))
