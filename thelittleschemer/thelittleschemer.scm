@@ -34,3 +34,14 @@
      (else (cons (car lat)
                  (rember a (cdr lat)))))))
 
+;; Definition of (firsts l)
+;; Return the firsts of a list of lists
+(define firsts
+  (lambda (l)
+    (cond
+     ((null? l) (quote ()))
+     (else (cons (car (car l))
+                 (firsts (cdr l)))))))
+
+
+
