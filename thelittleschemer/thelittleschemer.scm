@@ -23,3 +23,14 @@
      ((null? lat) #f)
      (else (or (eq? (car lat) a)
                (member? a (cdr lat)))))))
+
+
+;; Definition of (rember a lat) remove member a from lat
+(define rember
+  (lambda (a lat)
+    (cond
+     ((null? lat) (quote ()))
+     ((eq? (car lat) a) (cdr lat))
+     (else (cons (car lat)
+                 (rember a (cdr lat)))))))
+
