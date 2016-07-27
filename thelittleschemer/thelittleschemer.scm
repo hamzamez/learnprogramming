@@ -44,4 +44,15 @@
                  (firsts (cdr l)))))))
 
 
+;; Definitions of (insertR new old lat)
+;; Insert new atom after the old one
+(define insertR
+  (lambda (new old lat)
+    (cond
+     ((null? lat) (quote ()))
+     (else
+      (cond
+       ((eq? (car lat) old) (cons (car lat)  (cons new (cdr lat))))
+       (else
+        (cons (car lat) (insertR new old (cdr lat)))))))))
 
