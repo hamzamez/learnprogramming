@@ -56,7 +56,7 @@
        (else
         (cons (car lat) (insertR new old (cdr lat)))))))))
 
-;; Deinition of (insertL new old lat)
+;; Definition of (insertL new old lat)
 ;; Insert new atom to the left of old in lat
 
 (define insertL
@@ -68,3 +68,13 @@
        ((eq? (car lat) old) (cons new lat))
        (else
         (cons (car lat) (insertL new old (cdr lat)))))))))
+
+;; Definition of (subst new old lat)
+;; Replace old with new in lat.
+(define subst
+  (lambda (new old lat)
+    (cond
+     ((null? lat) (quote ()))
+     ((eq? old (car lat)) (cons new (cdr lat)))
+     (else
+      (cons (car lat) (subst new old (cdr lat)))))))
