@@ -89,3 +89,14 @@
       (cons new (cdr lat)))
      (else
       (cons (car lat) (subst2 new o1 o2 (cdr lat)))))))
+
+
+;; Definition of (multirember a lat)
+;; Remove all occurences of a in lat
+(define multirember
+  (lambda (a lat)
+    (cond
+     ((null? lat) (quote ()))
+     ((eq? a (car lat)) (multirember a (cdr lat)))
+     (else
+      (cons (car lat) (multirember a (cdr lat)))))))
