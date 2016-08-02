@@ -78,3 +78,14 @@
      ((eq? old (car lat)) (cons new (cdr lat)))
      (else
       (cons (car lat) (subst new old (cdr lat)))))))
+
+;; Definition of (subst2 new o1 o2 lat)
+;; Replace the first occurence of o1 or o2 with new in lat
+(define subst2
+  (lambda (new o1 o2 lat)
+    (cond
+     ((null? lat) (quote ()))
+     ((or (eq? o1 (car lat)) (eq? o2 (car lat)))
+      (cons new (cdr lat)))
+     (else
+      (cons (car lat) (subst2 new o1 o2 (cdr lat)))))))
